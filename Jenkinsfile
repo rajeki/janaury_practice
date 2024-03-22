@@ -7,10 +7,11 @@ pipeline{
         TEST3= "this is fourth env"
     }   
     stages{
-        agent {
-        label 'Junkins_slave1'
-    }
+                  
         stage('Build') {
+            agent{
+            label 'Junkins_slave1'
+        }
             steps {
                 sh 'sleep 10'
             }
