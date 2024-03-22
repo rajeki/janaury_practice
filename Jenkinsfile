@@ -10,7 +10,7 @@ pipeline{
                   
         stage('Build') {
             agent{
-            label 'Junkins_slave1'
+            label 'jenkins_slave1'
         }
             steps {
                 sh 'sleep 10'
@@ -20,7 +20,7 @@ pipeline{
              
         stage('Test') {
             agent {
-        label 'junkins_slave2'
+        label 'jenkins_slave2'
     }
             steps {
                 sh'''
