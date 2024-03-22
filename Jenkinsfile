@@ -25,6 +25,8 @@ pipeline{
                 sh'''
                 #!/bin/bash
                 ls -ltr
+                echo $TEST  
+                echo $TEST4
                 sleep 5
                 '''
             }
