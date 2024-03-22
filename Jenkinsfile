@@ -5,10 +5,23 @@ pipeline{
     stages{
         stage('Build') {
             steps {
-                sh 'sleep 5'
+                sh 'sleep 10'
             }
 
         }
+        stage('Build1') {
+            steps {
+                sh 'sleep 10'
+            }
+
+        }
+        stage('Build2') {
+            steps {
+                sh 'sleep 10'
+            }
+
+        }
+        
 
         stage('Test') {
             steps {
