@@ -7,16 +7,9 @@ pipeline{
         TEST3= "this is fourth env"
     }   
     stages{
-        
-                  stage('Checkout') {
-                    steps {
-                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
-                        Checkout([$class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[url: 'https://github.com/rajeki/janaury_practice.git', 
-                        credentialsId: 'github']]])
-                    }
-                  }
+        stage('Parallel Stage'){
+        parallel{
+                 
         stage('Build') {
                         steps {
                 sh 'sleep 10'
@@ -36,6 +29,8 @@ pipeline{
             }
 
         }
+        }
+    }
     }
 }
      
