@@ -17,19 +17,13 @@ pipeline{
                     }
                   }
         stage('Build') {
-            agent{
-            label 'jenkins_slave1'
-        }
-            steps {
+                        steps {
                 sh 'sleep 10'
             }
 
         }
              
         stage('Test') {
-            agent {
-        label 'jenkins_slave2'
-    }
             steps {
                 sh'''
                 #!/bin/bash
