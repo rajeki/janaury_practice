@@ -7,6 +7,17 @@ pipeline{
         TEST3= "this is fourth env"
     }   
     stages{
+        
+        stage('Test1') {
+        steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        sh '''
+                                sleep 10
+                                exit 1
+                         '''
+                }
+        }
+  }
                   
                   stage('Checkout') {
                     steps {
