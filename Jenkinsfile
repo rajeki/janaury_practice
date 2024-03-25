@@ -8,6 +8,14 @@ pipeline{
     }   
     stages{
                   
+                  stage('Checkout') {
+                    steps {
+                        Checkout([$class: 'GitSCM',
+                        branches: [[name: '*/main']],
+                        userRemoteConfigs: [[url: 'https://github.com/rajeki/janaury_practice.git', 
+                        credentialsId: 'github']]])
+                    }
+                  }
         stage('Build') {
             agent{
             label 'jenkins_slave1'
