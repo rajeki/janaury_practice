@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent any
     environment {
         TEST= "this is first env"
         TEST1= "this is second env"
@@ -8,19 +8,9 @@ pipeline{
     }   
     stages{
         
-        stage('Test1') {
-        steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        sh '''
-                                sleep 10
-                                exit 1
-                         '''
-                }
-        }
-  }
-                  
                   stage('Checkout') {
                     steps {
+                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
                         Checkout([$class: 'GitSCM',
                         branches: [[name: '*/main']],
                         userRemoteConfigs: [[url: 'https://github.com/rajeki/janaury_practice.git', 
